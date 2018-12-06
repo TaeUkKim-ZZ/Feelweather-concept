@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1090701524100",
+    "firebase_url": "https://feelweather-c27d7.firebaseio.com",
+    "project_id": "feelweather-c27d7",
+    "storage_bucket": "feelweather-c27d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090701524100:android:bb9c9e2af54810df",
+        "android_client_info": {
+          "package_name": "neolabs.feelweather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1090701524100-oivr29rkirn02encvfblqmudtn195rc1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "neolabs.feelweather",
+            "certificate_hash": "1878b4ec11922008429d471ddf1330868d7af1b9"
+          }
+        },
+        {
+          "client_id": "1090701524100-6qjcqumeq9nv0cu20praa9kkc8n2fh0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE2O-Fs8gnwqIPITMmX3Sd94_MFRiB1CI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1090701524100-6qjcqumeq9nv0cu20praa9kkc8n2fh0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
