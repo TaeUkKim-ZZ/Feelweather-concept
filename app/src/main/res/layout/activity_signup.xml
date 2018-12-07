@@ -75,7 +75,6 @@
                     android:layout_height="match_parent"
                     android:hint="이름" />
         </android.support.design.widget.TextInputLayout>
-        <!-- Button -->
 
         <Button
                 android:id="@+id/email_signup_button2"

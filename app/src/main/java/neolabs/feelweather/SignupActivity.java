@@ -61,6 +61,7 @@ public class SignupActivity extends AppCompatActivity {
                                     userDTO.username = username;
                                     userDTO.feelstatus = "맑아요";
                                     userDTO.whyfeel = "";
+                                    userDTO.useremail = email;
 
                                     db.collection("Users").document(userDTO.useruid).set(userDTO).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

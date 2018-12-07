@@ -33,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
     int cnt = 0;
 
     UserDTO userDTO = new UserDTO();
+    UidDTO uidDTO = new UidDTO();
 
-    FloatingActionButton changeweather;
+    FloatingActionButton changeweather, addfriends;
 
     RecyclerView recyclerview;
 
@@ -43,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+
         changeweather = findViewById(R.id.floatingActionButton2);
+        addfriends = findViewById(R.id.floatingActionButton3);
 
         recyclerview = findViewById(R.id.recyclerView);
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
@@ -55,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ChangeWeatherActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        addfriends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FindFriendsActivity.class);
                 startActivity(intent);
             }
         });
@@ -81,7 +93,48 @@ public class MainActivity extends AppCompatActivity {
         private ArrayList<WeatherItem> feelArrayList = new ArrayList<>();
 
         public MyAdapter() {
-            db.collection("Users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            db.collection("Users").document(firebaseAuth.getUid()).collection("Friends").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    for (final QueryDocumentSnapshot document : task.getResult()) {
+                        uidDTO = document.toObject(UidDTO.class);
+                        db.collection("Users").document(uidDTO.useruid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                numberuid[cnt] = document.getId();
+                                userDTO = task.getResult().toObject(UserDTO.class);
+                                Log.d("유저들", userDTO.username + " : " + userDTO.feelstatus);
+                                if(userDTO.feelstatus.equals("맑아요")){
+                                    feelArrayList.add(new WeatherItem(userDTO.username, R.drawable.sun, userDTO.whyfeel));
+                                    notifyDataSetChanged();
+                                }
+                                else if(userDTO.feelstatus.equals("비와요")) {
+                                    feelArrayList.add(new WeatherItem(userDTO.username, R.drawable.rain, userDTO.whyfeel));
+                                    notifyDataSetChanged();
+                                }
+                                else if(userDTO.feelstatus.equals("눈와요")) {
+                                    feelArrayList.add(new WeatherItem(userDTO.username, R.drawable.snow, userDTO.whyfeel));
+                                    notifyDataSetChanged();
+                                }
+                                else if(userDTO.feelstatus.equals("안개가 껴요")) {
+                                    feelArrayList.add(new WeatherItem(userDTO.username, R.drawable.fog, userDTO.whyfeel));
+                                    notifyDataSetChanged();
+                                }
+                                else if(userDTO.feelstatus.equals("폭풍우가 쳐요")) {
+                                    feelArrayList.add(new WeatherItem(userDTO.username, R.drawable.storm, userDTO.whyfeel));
+                                    notifyDataSetChanged();
+                                }
+                                else if(userDTO.feelstatus.equals("번개가 쳐요")) {
+                                    feelArrayList.add(new WeatherItem(userDTO.username, R.drawable.thndr, userDTO.whyfeel));
+                                    notifyDataSetChanged();
+                                }
+                                cnt++;
+                            }
+                        });
+                    }
+                }
+            });
+            /*db.collection("Users").document(firebaseAuth.getUid()).collection("Following").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
@@ -126,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d("태그", "Error getting documents: ", task.getException());
                             }
                         }
-                    });
+                    });*/
         }
 
         @Override

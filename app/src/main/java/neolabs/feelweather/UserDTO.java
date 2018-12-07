@@ -5,4 +5,5 @@ public class UserDTO {
     String username;
     String feelstatus;
     String whyfeel;
+    String useremail;
 }
