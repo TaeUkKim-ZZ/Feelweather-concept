@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         db.collection("Users").document(uidDTO.useruid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                numberuid[cnt] = document.getId();
+                                numberuid[cnt] = uidDTO.useruid;
                                 userDTO = task.getResult().toObject(UserDTO.class);
                                 Log.d("유저들", userDTO.username + " : " + userDTO.feelstatus);
                                 if(userDTO.feelstatus.equals("맑아요")){
