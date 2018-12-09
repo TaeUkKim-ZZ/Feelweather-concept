@@ -91,6 +91,8 @@ public class FindFriendsActivity extends AppCompatActivity {
                         if(isfriend) {
                             Toast.makeText(getApplicationContext(), "친구추가 완료", Toast.LENGTH_SHORT).show();
                             isfriend = false;
+                        } else if(!isfriend) {
+                            Toast.makeText(getApplicationContext(), "친구검색 결과가 없습니다.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
