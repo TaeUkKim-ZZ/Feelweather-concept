@@ -1,7 +1,5 @@
 package neolabs.feelweather;
 
-import android.widget.ImageView;
-
 public class WeatherItem {
     public String name;
     public String introduce;

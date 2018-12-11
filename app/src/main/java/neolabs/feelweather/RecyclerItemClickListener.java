@@ -46,9 +46,11 @@ public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListen
         return false;
     }
 
-    @Override public void onTouchEvent(RecyclerView view, MotionEvent motionEvent) { }
+    @Override
+    public void onTouchEvent(RecyclerView view, MotionEvent motionEvent) { }
 
-    @Override public void onRequestDisallowInterceptTouchEvent (boolean disallowIntercept){}
+    @Override
+    public void onRequestDisallowInterceptTouchEvent (boolean disallowIntercept){}
 }
 
 //출처: http://liveonthekeyboard.tistory.com/136 [키위남]

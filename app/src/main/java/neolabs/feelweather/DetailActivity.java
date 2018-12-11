@@ -17,8 +17,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.*;
 import com.google.firebase.firestore.Query.Direction;
-import com.google.firebase.firestore.core.OrderBy;
-import com.google.firestore.v1beta1.StructuredQuery;
 
 import javax.annotation.Nullable;
 import java.text.SimpleDateFormat;

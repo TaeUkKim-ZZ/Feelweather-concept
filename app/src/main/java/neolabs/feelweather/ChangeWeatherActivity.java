@@ -11,15 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.api.Distribution;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.protobuf.Any;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class ChangeWeatherActivity extends AppCompatActivity {
 

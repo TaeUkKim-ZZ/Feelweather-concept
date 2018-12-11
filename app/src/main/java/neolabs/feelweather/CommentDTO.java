@@ -1,7 +1,7 @@
 package neolabs.feelweather;
 
 public class CommentDTO {
-    String useruid;
-    String comment;
-    String time;
+    public String useruid;
+    public String comment;
+    public String time;
 }

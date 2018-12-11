@@ -20,7 +20,6 @@ public class FirstActivity extends AppCompatActivity {
     EditText loginid, editpassword;
     Button login, signup;
     String email, password;
-    UserDTO userDTO = new UserDTO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

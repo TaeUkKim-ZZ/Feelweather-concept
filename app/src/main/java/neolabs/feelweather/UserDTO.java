@@ -1,9 +1,9 @@
 package neolabs.feelweather;
 
 public class UserDTO {
-    String useruid;
-    String username;
-    String feelstatus;
-    String whyfeel;
-    String useremail;
+    public String useruid;
+    public String username;
+    public String feelstatus;
+    public String whyfeel;
+    public String useremail;
 }
